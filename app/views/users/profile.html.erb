@@ -1,0 +1,41 @@
+<%= render "shared/success_msg" %>
+
+<h3><%= link_to "アカウント編集", users_account_path, class: "ml-2 mt-2" %></h3>
+
+<div class="container-fluid">
+ <div class="border-bottom text-center">
+  <h3>プロフィール</h3>
+ </div>
+
+ <%= form_with model: @user, local: true do |f| %>
+
+  <% if current_user.image.attached? %>
+   <div class="form-group text-center border-bottom img-fluid">
+    <%= image_tag current_user.image, class: "rounded-circle", size: '77x77' %>
+    </div>
+  <% else %>
+   <div class="form-group text-center border-bottom">
+    <%= image_tag "https://presite-potepancamp-rails-02.herokuapp.com/assets/default_icon-9263fc59c414b7228d256fc178dcb22183561357950a68f5ad086ba7ee054974.jpg", class: "rounded-circle img-fluid", size: "77x77" %>
+   </div>
+  <% end %>
+
+  <div class="form-group border-bottom">
+   <%= f.label "アイコン画像", class: "label w-25" %>
+   <%= f.file_field :image %>
+  </div> 
+
+  <div class="form-group border-bottom">
+   <%= f.label "名前", class: "label" %>
+   <%= f.text_field :name, placeholder: "名前を入力", class: "form-control" %>
+  </div>
+
+  <div class="form-group border-bottom">
+   <%= f.label "自己紹介", class: "label" %>
+   <%= f.text_area :user_introduction, placeholder: "自己紹介", class: "form-control" %>
+  </div> 
+
+  <div class="actions">
+   <%= f.submit "更新", class: "btn btn-primary btn-block mt-4 text-center" %>
+  </div> 
+<% end %>
+</div>

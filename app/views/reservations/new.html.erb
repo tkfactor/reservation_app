@@ -1,0 +1,11 @@
+<div class="container">
+ <h4>予約内容確認</h4>
+ <h5>¥ <%= @reservation.price %> / 日 </h5>
+ <%= form_with model: @reservation, local: true do |f| %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :room_id, value: @room.id %>
+
+  <%= f.label :str_date, "開始日" %>
+  <%= f.text_field :str_date, value: @reservation.str_date, readonly: true %>
+ <% end %>
+</div>

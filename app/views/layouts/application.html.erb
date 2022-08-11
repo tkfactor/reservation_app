@@ -8,9 +8,50 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
+   <header class="header d-flex text-white w-100">
+    <div class="header_left">
+     <%= link_to root_path do %>
+     <%= image_tag 'https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png' %>
+   <% end %>
+   </div>
+
+  <div class="dropdown">
+
+    <% if user_signed_in? %>
+     <p class="user_name"><%= current_user.name %></p>
+
+   <button class="btn btn-secondary dropdown-toggle"
+     type="button" id="dropdownMenu1" data-toggle="dropdown"
+     aria-haspopup="true" aria-expanded="false">
+     メニュー
+   </button>
+
+     <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+      <ul class="nav_list">
+       <li class="dropdown-item"><%= link_to "ルーム登録", new_room_path %></li>
+       <li class="dropdown-item">予約済みルーム一覧</li>
+       <li class="dropdown-item">登録済みルーム一覧</li>
+       <li class="dropdown-item"><%= link_to "設定", users_profile_path %></li>
+       <li class="dropdown-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+      </ul>
+     </div>
+    </div>
+    <% else %>
+     <div class="nav_list_before">
+      <%= link_to "ログイン", new_user_session_path, class: 'btn btn-primary' %>
+      <%= link_to "登録する", new_user_registration_path, class: 'btn btn-secondary' %>
+    <% end %>
+    </div>
+   </header>
     <%= yield %>
+    <footer>
+    © 2020 POTEPAN.INC.
+    </footer>
   </body>
 </html>

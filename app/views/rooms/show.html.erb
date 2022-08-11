@@ -1,0 +1,39 @@
+<%= render "shared/success_msg" %>
+<div class="container">
+ <div class="row">
+  <%= image_tag @room.room_image, size: "750x424", class: "col-8 mt-4" %>
+
+  <div class= "col-4 mt-4 pt-4 border">
+   <h5>¥ <%= @room.room_price %> / 日</h5>
+
+   <%= form_with url: new_reservation_path, local: true do |f| %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :room_id, value: @room.id %>
+
+    <div class="form-group">
+     <%= f.label :room_str_date, "開始日" %>
+     <%= f.datetime_field :room_str_date, placeholder: "年/月/日", class: "mt-4" %>
+    </div>
+
+    <div class="form-group">
+     <%= f.label :room_end_date, "終了日" %>
+     <%= f.datetime_field :room_end_date, placeholder: "年/月/日", class: "mt-4" %>
+    </div>
+
+    <div class="form-group">
+     <%= f.label :room_number, "人数" %>
+     <%= f.number_field :room_number, class: "ml-2 mt-3 mt-4" %>
+    </div>
+
+    <div class="actions">
+     <%= f.submit "予約する", class: "btn btn-primary btn-block mt-5" %>
+    </div>
+  <% end %>
+  </div>
+ </div>
+ <div class="border-bottom"><%= link_to image_tag("https://presite-potepancamp-rails-02.herokuapp.com/assets/default_icon-9263fc59c414b7228d256fc178dcb22183561357950a68f5ad086ba7ee054974.jpg", class: "rounded-circle mt-3", size: "77x77" ), root_path %></div>
+ <div class="border-bottom"><h3><%= @room.room_name %></h3></div>
+ <div class="border-bottom"><%= @room.room_address %></div>
+
+ <div class="border-bottom"><%= @room.room_introduction%></div>
+</div>
