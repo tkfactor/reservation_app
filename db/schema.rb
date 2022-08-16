@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_09_073219) do
+ActiveRecord::Schema.define(version: 2022_08_12_045314) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -61,9 +61,6 @@ ActiveRecord::Schema.define(version: 2022_08_09_073219) do
     t.string "room_address"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.date "room_str_date"
-    t.date "room_end_date"
-    t.integer "room_number"
     t.integer "user_id"
     t.index ["user_id"], name: "index_rooms_on_user_id"
   end

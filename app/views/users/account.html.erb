@@ -1,2 +1,18 @@
 <h3><%= link_to "プロフィール編集", users_profile_path, class: "ml-2 mt-2" %></h3>
-<h3>アカウント</h3>
+<div class="container-fluid">
+ <h3 class="border-bottom">アカウント</h3>
+
+ <div class="row border-bottom">
+  <div class="col-3">メールアドレス</div>
+  <div class="col-9"><%= current_user.email%></div>
+ </div>
+
+  <div class="row border-bottom">
+  <div class="col-3">パスワード</div>
+  <div class="col-9">*********</div>
+ </div>
+
+ <div class="row">
+  <%= link_to "編集", edit_user_registration_path, class: "btn btn-primary col-2 ml-4 mt-3" %>
+ </div>
+</div>

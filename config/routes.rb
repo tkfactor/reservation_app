@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
   get 'reservations/new'
   get 'reservations/index'
+
   root 'tops#index'
 
   get 'users/profile'
   get 'users/account'
-
-  get 'rooms/posts'
 
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',
@@ -15,7 +14,11 @@ Rails.application.routes.draw do
 
   resources :users
 
-  resources :rooms
+  resources :rooms do
+    collection do
+      get 'search'
+    end
+  end
 
   resources :reservations
   post 'reservations/new'

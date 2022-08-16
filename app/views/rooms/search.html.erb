@@ -1,0 +1,16 @@
+<div class="container">
+ <h3>検索結果: <%= @count %>件</h3>
+ <div class="row">
+  <% @rooms.each do |room| %>
+   <div class="border my-3 mx-3">
+   <%= link_to room_path(:id) do %>
+    <%= image_tag room.room_image, size: "240x140" if room.room_image.present? %>
+    <p class="ml-2 mt-3"><%= room.room_name%></p>
+    <p class="ml-2"><%= room.room_address %></p>
+    <p class="text-right mr-3">¥<%= room.room_price %></p>
+   <% end %>
+   </div>
+  <% end %>
+ </div>
+</div>
+

@@ -1,28 +1,28 @@
 <%= render "shared/success_msg" %>
 <div class="container">
  <div class="row">
-  <%= image_tag @room.room_image, size: "750x424", class: "col-8 mt-4" %>
+  <%= image_tag @room.room_image, size: "750x424" , class: "col-8 mt-4 image-fluid"  %>
 
   <div class= "col-4 mt-4 pt-4 border">
    <h5>¥ <%= @room.room_price %> / 日</h5>
 
-   <%= form_with url: new_reservation_path, local: true do |f| %>
+   <%= form_with model: @reservation, url: new_reservation_path, local: true do |f| %>
     <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.hidden_field :room_id, value: @room.id %>
 
     <div class="form-group">
-     <%= f.label :room_str_date, "開始日" %>
-     <%= f.datetime_field :room_str_date, placeholder: "年/月/日", class: "mt-4" %>
+     <%= f.label :str_date, "開始日" %>
+     <%= f.datetime_field :str_date, placeholder: "年/月/日", class: "mt-4" %>
     </div>
 
     <div class="form-group">
-     <%= f.label :room_end_date, "終了日" %>
-     <%= f.datetime_field :room_end_date, placeholder: "年/月/日", class: "mt-4" %>
+     <%= f.label :end_date, "終了日" %>
+     <%= f.datetime_field :end_date, placeholder: "年/月/日", class: "mt-4" %>
     </div>
 
     <div class="form-group">
-     <%= f.label :room_number, "人数" %>
-     <%= f.number_field :room_number, class: "ml-2 mt-3 mt-4" %>
+     <%= f.label :number, "人数" %>
+     <%= f.number_field :number, class: "ml-2 mt-3 mt-4" %>
     </div>
 
     <div class="actions">
