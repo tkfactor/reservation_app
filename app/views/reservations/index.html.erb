@@ -1,0 +1,29 @@
+<h3 class="my-3 ml-3">予約済みルーム一覧</h3>
+
+<table class="table table-hover">
+  <thead>
+    <tr class="py-2">
+      <th>ルーム画像</th>
+      <th>ルーム名</th>
+      <th>ルーム紹介</th>
+      <th>合計料金</th>
+      <th>開始日</th>
+      <th>終了日</th>
+      <th>予約確定日時</th>
+    </tr>
+  </thead>
+  <tbody>
+   <% @reservations.each do |reservation| %>
+    <tr>
+      <td><%= image_tag reservation.room.room_image, size: "240x140" %></td>
+      <td><%= link_to reservation.room.room_name, room_path(reservation.room_id)  %></td>
+      <td><%= reservation.room.room_introduction %></td>
+      <td><%= reservation.sum_price %></td>
+      <td><%= reservation.str_date%></td>
+      <td><%= reservation.end_date%></td>
+      <td><%= reservation.created_at.to_s(:datetime_jp)%></td>
+    </tr>
+   <% end %>
+  </tbody>
+</table>
+

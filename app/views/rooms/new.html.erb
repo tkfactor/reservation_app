@@ -1,0 +1,38 @@
+<%= render "shared/error",obj:@room %>
+<div class="container-fluid">
+ <div class="form-group border-bottom">
+  <h3>ルーム情報登録</h3>
+  </div>
+
+ <%= form_with model: @room, local: true do |f| %>
+
+ <div class="form-group border-bottom">
+  <%= f.label :room_name, "ルーム名", class: "label" %>
+  <%= f.text_field :room_name, placeholder: "ルーム名を入力", class: "form-control" %>
+ </div>
+
+ <div class="form-group border-bottom">
+  <%= f.label :room_introduction, "ルーム紹介", class: "label" %>
+  <%= f.text_area :room_introduction, placeholder: "ルーム説明を入力", class: "form-control" %>
+ </div>
+
+ <div class="form-group border-bottom">
+  <%= f.label :room_price, "料金", class: "label" %>
+  <%= f.number_field :room_price, placeholder: "1日あたりの料金を入力", class: "form-control" %>
+ </div>
+
+ <div class="form-group border-bottom">
+  <%= f.label  :room_address, "住所", class: "label" %>
+  <%= f.text_field :room_address, placeholder: "住所を入力", class: "form-control" %>
+ </div>
+
+ <div class="form-group border-bottom">
+  <%= f.label :room_image, "ルーム画像", class: "label" %>
+  <%= f.file_field :room_image %>
+ </div>
+
+ <div class="actions">
+  <%= f.submit "登録", class: "btn btn-primary btn-block mt-4" %>
+ </div>
+ </div>
+<% end %>

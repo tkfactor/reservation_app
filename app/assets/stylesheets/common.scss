@@ -1,0 +1,81 @@
+body {
+    margin: 0;
+}
+
+.header {
+    background-color: black;
+    display: flex;
+    position: relative;
+}
+
+.header-left-nav {
+    display: flex;
+    float: left;
+}
+
+.header-right-nav {
+    display: flex;
+    float: right;
+    position: absolute;
+    right: 90px;
+}
+
+footer {
+    color: white;
+    bottom: 0;
+    background-color: black;
+    margin-top: 530px;
+    padding: 60px;
+    text-align: center;
+    width: 100%;
+}
+
+.container-devise {
+    text-align: center;
+    max-width: 666px;
+    padding: 24px;
+    margin: 30px auto;
+    border-radius: 4px;
+    box-shadow: 0px 1px 3px 0px gray;
+}
+
+.label::after {
+    content: "必須";
+    color: white;
+    background-color: red;
+    padding: 3px;
+    margin: 3px;
+    font-size: 13px;
+}
+
+.container-fluid {
+    max-width: 800px;
+    padding: 24px;
+    margin-top: 50px;
+    border-radius: 4px;
+    box-shadow: 0px 1px 3px 0px gray;
+}
+
+.border-bottom {
+    padding: 30px;
+}
+
+.form-room-show {
+    max-width: 500px;
+    padding: 24px;
+    margin: 50px;
+    border-radius: 4px;
+    box-shadow: 0px 1px 3px 0px gray;
+}
+
+.top-main {
+    background-image: url(https://presite-potepancamp-rails-02.herokuapp.com/assets/img_cover_top.jpg);
+    background-size: cover;
+    width: 100%;
+    height: 650px;
+}
+
+.top-search {
+    margin-top: 180px;
+    margin-left: 100px;
+}
