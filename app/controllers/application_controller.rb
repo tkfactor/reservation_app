@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
 
     before_action :configure_permitted_parameters, if: :devise_controller?
-    before_action :search
+    before_action :set_search
 
     protected
   
@@ -9,7 +9,8 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
     end
 
-    def search
+    def set_search
       @q = Room.ransack(params[:q])
+      @rooms = @q.result
     end
 end

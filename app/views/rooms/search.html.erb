@@ -3,7 +3,7 @@
  <div class="row">
   <% @rooms.each do |room| %>
    <div class="border my-3 mx-3">
-   <%= link_to room_path(:id) do %>
+   <%= link_to room do %>
     <%= image_tag room.room_image, size: "240x140" if room.room_image.present? %>
     <p class="ml-2 mt-3"><%= room.room_name%></p>
     <p class="ml-2"><%= room.room_address %></p>

@@ -7,8 +7,8 @@
       <p>Potepan Shareでまだ体験したこのない旅をしよう</p>
       <%= search_form_for @q, url: search_rooms_path do |f|%>
        <div class="form-group">
-        <%= f.label :room_address_eq, "エリア" %>
-        <%= f.search_field :room_address_eq, placeholder: "東京", class: "form-control" %>
+        <%= f.label :room_address_cont, "エリア" %>
+        <%= f.search_field :room_address_cont, placeholder: "東京", class: "form-control" %>
       </div>
        <%= f.submit "探す", class: "btn btn-primary btn-block" %>
       <% end %>

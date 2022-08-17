@@ -1,4 +1,6 @@
 class RoomsController < ApplicationController
+  before_action :set_q
+
   def index
     @rooms = Room.all
   end
@@ -23,9 +25,12 @@ class RoomsController < ApplicationController
     @reservation = Reservation.new
   end
 
-def search
-  @q = Room.ransack(params[:id])
-  @rooms = @q.result(distinct: true)
-  @count = @rooms.count
-end
+  def search
+    @rooms = @q.result
+    @count = @rooms.count
+  end
+
+  def set_q
+    @q = Room.ransack(params[:q])
+  end
 end
